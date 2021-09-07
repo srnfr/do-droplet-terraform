@@ -4,8 +4,7 @@
 prefix = "sew"
 # Region where resources should be created
 region = "ams3"
-# Count of agent nodes with role all
-count_agent_all_nodes = "1"
+domain_name = "randco.eu"
 # Droplet size
 size = "s-2vcpu-2gb"
 ssh_keys = [ "3274777" ]
