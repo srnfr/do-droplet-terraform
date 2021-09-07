@@ -9,8 +9,8 @@ lifecycle {
   }
 }
 resource "digitalocean_droplet" "docker" {
-  image  = "ubuntu-18-04-x64"
-  name   = "docker"
+  image  = "docker-20-04"
+  name   = "${var.prefix}-docker"
   region = "fra1"
   size   = "s-1vcpu-2gb"
   tags               = [digitalocean_tag.docker.id]
