@@ -16,7 +16,7 @@ variable "ssh_keys" {
   default = []
 }
 
-resource "digitalocean_tag" "sew" {
+resource "digitalocean_tag" "tag" {
   name = var.tag_name
   lifecycle {
     prevent_destroy = true
@@ -28,7 +28,7 @@ resource "digitalocean_droplet" "docker" {
   name   = "${var.prefix}-docker"
   region = var.region_name
   size   = var.droplet_size
-  tags               = [digitalocean_tag.docker.id]
+  tags               = [digitalocean_tag.tag.id]
   monitoring         = "true"
   private_networking = "true"
   ssh_keys           = var.ssh_keys
