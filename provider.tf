@@ -4,7 +4,3 @@ variable "do_token" {
   description = "Digital Ocean token."
 }
 
-# Configure the DigitalOcean Provider
-provider "digitalocean" {
-  token = var.do_token
-}
