@@ -19,15 +19,6 @@ variable "ssh_keys" {
   default = []
 }
 
-terraform {
-  required_providers {
-    digitalocean = {
-      source = "digitalocean/digitalocean"
-      version = "~> 1.0"
-    }
-  }
-}
-
 resource "digitalocean_tag" "tag" {
   name = var.tag_name
   lifecycle {
