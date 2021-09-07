@@ -1,7 +1,7 @@
 variable "region_name" {
   type        = string
 }
-variable "rdrplet_size" {
+variable "droplet_size" {
   type        = string
 }
 variable "prefix" {
@@ -15,18 +15,6 @@ variable "tag_name" {
 }
 variable "ssh_keys" {
   default = []
-}
-
-
-# Register the DO token
-variable "do_token" {
-  type        = string
-  description = "DigitalOcean token."
-}
-
-# Configure the DigitalOcean Provider
-provider "digitalocean" {
-  token = var.do_token
 }
 
 resource "digitalocean_tag" "sew" {
