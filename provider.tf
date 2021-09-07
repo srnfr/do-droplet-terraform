@@ -4,18 +4,6 @@ variable "do_token" {
   description = "DigitalOcean token."
 }
 
-terraform {
-  required_version = ">= 0.13"
-  required_providers {
-    digitalocean = {
-      source = "digitalocean/digitalocean"
-    }
-    time = {
-      source = "hashicorp/time"
-    }
-  }
-}
-
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
   token = var.do_token
