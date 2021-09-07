@@ -1,9 +1,26 @@
+variable "region_name" {
+  type        = string
+}
+variable "rdrplet_size" {
+  type        = string
+}
+variable "prefix" {
+  type        = string
+}
+variable "ssh_keys" {
+  type        = string
+}
+variable "tag_name" {
+  type        = string
+}
+
 resource "digitalocean_tag" "sew" {
-  name = "sew"
+  name = var.tag_name
 lifecycle {
         prevent_destroy = true
   }
 }
+
 resource "digitalocean_droplet" "docker" {
   image  = "docker-20-04"
   name   = "${var.prefix}-docker"
