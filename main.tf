@@ -1,7 +1,3 @@
-data "digitalocean_ssh_key" "ssh_key" {
-  name = "your_ssh_key_name"
-}
-
 resource "digitalocean_tag" "sew" {
   name = "sew"
 lifecycle {
@@ -11,8 +7,8 @@ lifecycle {
 resource "digitalocean_droplet" "docker" {
   image  = "docker-20-04"
   name   = "${var.prefix}-docker"
-  region = "fra1"
-  size   = "s-1vcpu-2gb"
+  region = var.region_name
+  size   = var.droplet_size
   tags               = [digitalocean_tag.docker.id]
   monitoring         = "true"
   private_networking = "true"
