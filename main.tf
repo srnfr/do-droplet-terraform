@@ -26,6 +26,10 @@ variable "ssh_keys" {
   default = []
 }
 
+provider "digitalocean/digitalocean" {
+  token = var.do_token
+}
+
 resource "digitalocean_tag" "tag" {
   name = var.tag_name
   lifecycle {
