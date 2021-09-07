@@ -16,9 +16,7 @@ resource "digitalocean_droplet" "docker" {
   tags               = [digitalocean_tag.docker.id]
   monitoring         = "true"
   private_networking = "true"
-  ssh_keys = [
-    data.digitalocean_ssh_key.ssh_key.id
-  ]
+  ssh_keys           = var.ssh_keys
 }
 
 resource "digitalocean_record" "docker" {
