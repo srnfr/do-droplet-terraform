@@ -1,4 +1,7 @@
 terraform {
+  backend "remote" {
+        // Backend configuration
+  }
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
