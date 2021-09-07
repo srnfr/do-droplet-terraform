@@ -7,9 +7,7 @@ variable "droplet_size" {
 variable "prefix" {
   type        = string
 }
-variable "ssh_keys" {
-  type        = string
-}
+
 variable "tag_name" {
   type        = string
 }
