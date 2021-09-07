@@ -11,14 +11,15 @@ variable "prefix" {
 variable "tag_name" {
   type        = string
 }
+
 variable "ssh_keys" {
   default = []
 }
 
 resource "digitalocean_tag" "sew" {
   name = var.tag_name
-lifecycle {
-        prevent_destroy = true
+  lifecycle {
+    prevent_destroy = true
   }
 }
 
