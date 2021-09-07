@@ -8,3 +8,4 @@ domain_name = "randco.eu"
 # Droplet size
 droplet_size = "s-2vcpu-2gb"
 ssh_keys = [ "3274777" ]
+tag_name = "sew"
