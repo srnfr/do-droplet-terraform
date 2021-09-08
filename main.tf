@@ -7,6 +7,9 @@ variable "domain_name" {
 variable "droplet_size" {
   type        = string
 }
+variable "droplet_image" {
+  type        = string
+}
 variable "prefix" {
   type        = string
 }
