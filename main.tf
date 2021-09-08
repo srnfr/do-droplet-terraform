@@ -27,7 +27,7 @@ resource "digitalocean_tag" "tag" {
 }
 
 resource "digitalocean_droplet" "docker" {
-  image  = "docker-20-04"
+  image  = var.droplet_image
   name   = "${var.prefix}-docker"
   region = var.region_name
   size   = var.droplet_size
@@ -35,6 +35,7 @@ resource "digitalocean_droplet" "docker" {
   monitoring         = "true"
   private_networking = "true"
   ssh_keys           = var.ssh_keys
+  user_data = file("cloud-init.yaml")
 }
 
 resource "digitalocean_record" "docker" {
