@@ -38,7 +38,8 @@ resource "digitalocean_droplet" "docker" {
   monitoring         = "true"
   private_networking = "true"
   ssh_keys           = var.ssh_keys
-  user_data = file("cloud-init.yaml")
+  user_data = "${file("cloud-init.yaml")}"
+##  user_data = "#cloud-config\nruncmd:\n  - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa"
 }
 
 resource "digitalocean_record" "docker" {
