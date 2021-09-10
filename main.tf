@@ -24,9 +24,9 @@ variable "ssh_keys" {
 
 resource "digitalocean_tag" "tag" {
   name = var.tag_name
-  lifecycle {
-    prevent_destroy = true
-  }
+##  lifecycle {
+##    prevent_destroy = true
+##  }
 }
 
 resource "digitalocean_droplet" "docker" {
