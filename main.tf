@@ -36,7 +36,7 @@ resource "digitalocean_droplet" "docker" {
   size   = var.droplet_size
   tags               = [digitalocean_tag.tag.id]
   monitoring         = "true"
-  private_networking = "true"
+ ## private_networking = "true"
   ssh_keys           = var.ssh_keys
   user_data = "${file("cloud-init.yaml")}"
 ##  user_data = "#cloud-config\nruncmd:\n  - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa"
