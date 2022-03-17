@@ -11,4 +11,5 @@ variable "do_token" {}
 
 provider "digitalocean" {
   token = var.do_token
+  ## TO BE DEFINED IN VARIABLES SETTINGS OF THE TERRAFORM WORSKPACE, AS do_token
 }
