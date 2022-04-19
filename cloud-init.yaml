@@ -2,7 +2,7 @@
 runcmd:
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
-  - apt update && apt install -y mosh
+  - apt update && apt install -y mosh && apt install atop
 snap:
     commands:
         00: ['install', 'yq']
