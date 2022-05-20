@@ -3,8 +3,8 @@ runcmd:
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
   - apt update && apt install -y mosh atop
-  - git clone -q "https://github.com/cisco-ie/vpp-lab.git" /home/vpplab
-  - sh /home/vpplab/prepare.sh
+  - git clone --recursive -q "https://github.com/cisco-ie/vpp-lab.git" /home/vpplab
+  - /bin/sh /home/vpplab/prepare.sh
 snap:
     commands:
         00: ['install', 'yq']
