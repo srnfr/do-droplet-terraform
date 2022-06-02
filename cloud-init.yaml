@@ -1,9 +1,24 @@
 #cloud-config
+units:
+  - name: runcmd.service
+    command: start
+    content: |
+        [Unit]
+        Description=Enable swap
+
+        [Service]
+        Type=oneshot
+        ExecStart=/bin/sh -c "\
+          sudo fallocate -l 4G /swapfile && \
+          sudo chmod 600 /swapfile && \
+          sudo mkswap /swapfile && \
+          sudo swapon /swapfile && \
+          sudo echo "/swapfile   none    swap    sw    0   0" | sudo tee --append /etc/fstab"
 runcmd:
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
   - apt update && apt install -y mosh atop
-  - git clone --recursive -q "https://github.com/cisco-ie/vpp-lab.git" /home/vpplab
+  - git clone --recursive -q "https://github.com/srnfr/vpp-lab.git" /home/vpplab
   - /bin/sh /home/vpplab/prepare.sh
 snap:
     commands:
