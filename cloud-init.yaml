@@ -5,7 +5,7 @@ runcmd:
   - ufw disable
   - apt update && apt install -y mosh atop
   - git clone --recursive -q "https://github.com/srnfr/vpp-lab.git" /home/vpplab
-  - /bin/sh /home/vpplab/prepare.sh
+##  - /bin/sh /home/vpplab/prepare.sh
 snap:
     commands:
         00: ['install', 'yq']
