@@ -1,18 +1,6 @@
 #cloud-config
-disk_setup:
-    ephemeral0:
-        table_type: mbr
-        layout: [90, [9, 82]]
-        overwrite: True
-fs_setup:
-    - device: ephemeral0.1
-      filesystem: ext4
-    - device: ephemeral0.2
-      filesystem: swap
-mounts:
-    - ["ephemeral0.1", "/mnt"]
-    - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 runcmd:
+  -  sudo fallocate -l 1G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab;
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
   - apt update && apt install -y mosh atop
