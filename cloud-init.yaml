@@ -1,6 +1,6 @@
 #cloud-config
 runcmd:
-  -  sudo fallocate -l 1G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab;
+  - fallocate -l 1G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab;
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
   - apt update && apt install -y mosh atop
