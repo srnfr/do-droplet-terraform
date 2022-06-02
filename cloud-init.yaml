@@ -1,19 +1,17 @@
 #cloud-config
-units:
-  - name: runcmd.service
-    command: start
-    content: |
-        [Unit]
-        Description=Enable swap
-
-        [Service]
-        Type=oneshot
-        ExecStart=/bin/sh -c "\
-          sudo fallocate -l 4G /swapfile && \
-          sudo chmod 600 /swapfile && \
-          sudo mkswap /swapfile && \
-          sudo swapon /swapfile && \
-          sudo echo "/swapfile   none    swap    sw    0   0" | sudo tee --append /etc/fstab"
+disk_setup:
+    ephemeral0:
+        table_type: mbr
+        layout: [90, [9, 82]]
+        overwrite: True
+fs_setup:
+    - device: ephemeral0.1
+      filesystem: ext4
+    - device: ephemeral0.2
+      filesystem: swap
+mounts:
+    - ["ephemeral0.1", "/mnt"]
+    - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 runcmd:
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
