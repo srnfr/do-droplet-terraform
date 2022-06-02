@@ -47,5 +47,5 @@ resource "digitalocean_record" "docker" {
   type   = "A"
   name   = "docker"
   value  = digitalocean_droplet.docker.ipv4_address
-  ttl    = 300
+  ttl    = 60
 }
