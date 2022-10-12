@@ -5,7 +5,7 @@ prefix = "sew"
 # Region where resources should be created
 region_name = "fra1"
 # Droplet size
-droplet_size = "s-1vcpu-2gb"
+droplet_size = "s-4vcpu-8gb-intel"
 ##droplet_size = "s-2vcpu-2gb"
 droplet_image = "docker-20-04"
 tag_name = "sew"
