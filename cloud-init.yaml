@@ -5,7 +5,7 @@ runcmd:
   - fallocate -l 4G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab;
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
   - ufw disable
-  - apt install -y mosh atop
+  - apt install -y mosh atop net-tools
   - git clone --recursive -q "https://github.com/srnfr/vpp-lab.git" /home/vpplab
   ## Dive
   - wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
