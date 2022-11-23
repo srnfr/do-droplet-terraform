@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 apt update
-apt install -y build-essential cmake
+apt install -y build-essential cmake libelf-dev
 
 ##Install Go
 cd /home
