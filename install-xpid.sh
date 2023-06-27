@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+set -x
 
 apt update
 apt install -y build-essential cmake libelf-dev libbpf-dev
