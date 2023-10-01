@@ -17,6 +17,8 @@ runcmd:
   ## ndots
   - rm -f /etc/resolv.conf ; echo "nameserver 1.1.1.1" > /etc/resolv.conf ; echo "options ndots:5" >> /etc/resolv.conf
 ##  - /bin/sh /home/vpplab/prepare.sh
+  ## install docker sbom
+  - curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
 snap:
     commands:
         00: ['install', 'yq']
