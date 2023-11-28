@@ -1,6 +1,6 @@
 #cloud-config
 apt_upgrade: True
-apt_reboot_if_required: True
+apt_reboot_if_required: False
 runcmd:
   - fallocate -l 4G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab;
   - /usr/bin/docker run -d -p 80:80 sagikazarmark/dvwa
