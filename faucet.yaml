@@ -1,0 +1,24 @@
+vlans:
+  dmz1:
+    vid: 100
+  dmz2:
+    vid: 101
+
+dps:
+  sw1:
+    dp_id: 0x1
+    hardware: "Open vSwitch"
+    interfaces:
+      1:
+        name: "host1"
+        native_vlan: dmz1
+      2:
+        name: "host2"
+        native_vlan: dmz1
+      3:
+        name: "host1"
+        native_vlan: dmz2
+      4:
+        name: "host2"
+        native_vlan: dmz2
+
